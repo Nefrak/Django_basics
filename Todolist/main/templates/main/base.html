@@ -32,13 +32,21 @@
             color: #f1f1f1;
         }
 
-        .main{
+        .main {
             margin-left: 10em;
             padding: 0 2em;
         }
 
-        .padd-7{
+        .padd-7 {
             padding: 0.75rem 0.75rem;
+        }
+
+        .user {
+            padding: 1em 2em 1em 2em;
+            font-size: 1.2em;
+            text-decoration: none;
+            color: #bbbbbb;
+            display: block;
         }
 
         </style>
@@ -47,9 +55,18 @@
 
     <body>
         <div id="sidebar", name="sidebar" class="sidenav">
+            {% if user.is_authenticated %}
+                <p class="user">{{user.username}}</p>
+                <a href="/logout">Logout</a>
+            {% else %}
+                <p class="user">Not logged in</p>
+                <a href="/login">Log in</a>
+            {% endif %}
             <a href="/">Home</a>
-            <a href="/create">Create</a>
-            <a href="/view">View</a>
+            {% if user.is_authenticated %}
+                <a href="/create">Create</a>
+                <a href="/view">View</a>
+            {% endif %}
         </div>
         <div id="content", name="content" class="main">
             <div class="row justify-content-center">
