@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        
+        <style type="text/css">
+        .sidenav {
+            height: 100%;
+            width: 10em;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            padding-top: 2em;
+        }
+        
+        .sidenav a {
+            padding: 1em 2em 1em 2em;
+            font-size: 1.2em;
+            text-decoration: none;
+            color: #818181;
+            display: block;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .main{
+            margin-left: 10em;
+            padding: 0 2em;
+        }
+
+        .padd-7{
+            padding: 0.75rem 0.75rem;
+        }
+
+        </style>
+        <title>{% block title %}Website{% endblock %}</title>
+    </head>
+
+    <body>
+        <div id="sidebar", name="sidebar" class="sidenav">
+            <a href="/">Home</a>
+            <a href="/create">Create</a>
+            <a href="/view">View</a>
+        </div>
+        <div id="content", name="content" class="main">
+            <div class="row justify-content-center">
+                <div class="col-10">
+                    <h1 class="mt-2">My site</h1>
+                    <hr class="mt-0 mb-4">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    </body>
+</html>
